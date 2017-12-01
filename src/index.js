@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import ImgPreview from './imgPreview'
-import ImgList from './imgList.jsx'
+import ImgList from './imgList'
 
 export default (props) => {
   const { src } = props;

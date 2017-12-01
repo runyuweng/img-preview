@@ -3,7 +3,7 @@
  * autohr: wengrunyu@meituan.com
  */
 import React, { PureComponent } from 'react';
-import './ImgPreview.scss';
+import './index.css';
 
 class ImgPreview extends PureComponent {
   constructor(props) {
@@ -206,7 +206,7 @@ class ImgPreview extends PureComponent {
   }
 
   render() {
-    return (<div className="examine-img-preview">
+    return (<div className="img-preview">
       <div className="btn-group">
         <span onClick={this.handleEnlarge}>放大</span>
         <span onClick={this.handleShrink}>缩小</span>
