@@ -6,14 +6,10 @@
   },
   "parser": "babel-eslint",
   "extends": "airbnb",
-  "excludes":[
-      "dist/*",
-      "node_modules/*"
-  ],
   "env": {
-      "browser": false,
-      "node": true,
-      "es6": true
+    "browser": false,
+    "node": true,
+    "es6": true
   },
   "globals": {
     "window": true,
@@ -132,6 +128,7 @@
       // --------------jsx-a11y规则--------------
       // 确保div等一些有点击事件的元素在使用点击事件时有role属性
       "jsx-a11y/no-static-element-interactions": 0,
+      "jsx-a11y/click-events-have-key-events": 0,
       "no-console": 0
   }
 }

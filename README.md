@@ -2,10 +2,10 @@
 ## 介绍
 图片预览组件，点击后全屏显示，支持放大缩小、拖拽等操作。
 ## 安装
-`$ mnpm install @mtfe/img-preview`
+`$ npm install img-preview`
 ## 使用
 ```
-import ImgPreview from '@mtfe/img-preview';
+import ImgPreview from 'img-preview';
 ...
 class AgentList extends Component {
   ...
@@ -15,4 +15,4 @@ class AgentList extends Component {
 }
 ```
 ## 配置
-- src: 图片地址
+- src: 

@@ -1,29 +1,23 @@
 const path = require('path')
-const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   devtool: 'inline-source-map',
-  entry: {
-    app: [
-      'webpack-hot-middleware/client',
-      path.resolve(__dirname, './index.js'),
-    ],
+  devServer: {
+    inline: true,
+    port: 3000,
   },
+  entry: path.resolve(__dirname, './index.jsx'),
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx'],
     alias: {
-      'img-preview': path.join(__dirname, '..', 'src', 'index'),
+      'img-preview': path.join(__dirname, '..', 'dist', 'index'),
     },
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: 'index.js',
     publicPath: '/',
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-  ],
   module: {
     loaders: [{
       test: /\.js$/,
@@ -33,9 +27,6 @@ module.exports = {
       test: /\.jsx$/,
       loader: 'babel-loader',
       exclude: /node_modules/,
-    }, {
-      test: /\.(png|jpg|jpeg|gif|svg|eot|ttf|woff|woff2)$/,
-      loader: 'url-loader',
     }, {
       test: /\.css$/,
       use: ['style-loader', 'css-loader'],

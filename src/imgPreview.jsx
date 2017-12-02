@@ -3,7 +3,7 @@
  * autohr: wengrunyu@meituan.com
  */
 import React, { PureComponent } from 'react';
-import './index.css';
+import '../assets/index.css';
 
 class ImgPreview extends PureComponent {
   constructor(props) {
