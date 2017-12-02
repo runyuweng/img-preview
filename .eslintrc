@@ -23,7 +23,8 @@
       // 1 warning 警告
       // 2 error 错误
       // 默认表示airbnb默认的风格
-
+      
+      "no-mixed-operators": 0,      
       // 禁止使用var
       "no-var": 1,
       // 处理错误的回调函数，默认off
@@ -115,6 +116,9 @@
       "react/sort-comp": 1,
       // 防止在单个文件中定义多个组件
       "react/no-multi-comp": 1,
+      // 索引可以为key
+      "react/no-array-index-key": 0,
+      
       // --------------import规则---------------
       // 禁止引入额外的依赖
       "import/no-extraneous-dependencies": 0,
@@ -129,6 +133,7 @@
       // 确保div等一些有点击事件的元素在使用点击事件时有role属性
       "jsx-a11y/no-static-element-interactions": 0,
       "jsx-a11y/click-events-have-key-events": 0,
+      "jsx-a11y/no-noninteractive-element-interactions": 0,
       "no-console": 0
   }
 }

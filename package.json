@@ -1,6 +1,6 @@
 {
   "name": "img-preview",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Img preview component for react",
   "main": "dist/index.js",
   "repository": {
@@ -8,6 +8,7 @@
     "url": "git+https://github.com/wengwengweng/img-preview.git"
   },
   "scripts": {
+    "prepare": "npm run build",
     "dev": "cd ./example && webpack-dev-server --hot",
     "build": "babel src -d dist --ignore spec.js,test.js",
     "test": "echo \"Error: no test specified\" && exit 1"

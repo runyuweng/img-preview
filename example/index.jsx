@@ -21,4 +21,4 @@ class ExamplePage extends Component {
   }
 }
 
-render(<ExamplePage />, document.querySelector('#app'));
+render(<ExamplePage />, document.querySelector('#app'))
