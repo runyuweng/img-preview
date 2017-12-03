@@ -12,6 +12,7 @@ class ImgItem extends Component {
     super(props)
     this.state = {
       showImg: false,
+      showError: false,
       loading: true,
     }
   }
@@ -32,6 +33,12 @@ class ImgItem extends Component {
     })
   }
 
+  handleError = () => {
+    this.setState({
+      showError: true,
+    })
+  }
+
   render() {
     const { src } = this.props
     return (
@@ -44,14 +51,32 @@ class ImgItem extends Component {
             <span />
           </div>
         </div>
-        <div className="img-small-content" style={{ display: !this.state.loading ? 'block' : 'none' }}>
-          <img className="img-small" src={src} alt="" />
-          <div className="img-item-hover" onClick={this.handleClick}>
-            <span className="img-item-preview">
-              <img onLoad={this.handleOnload} src="http://s0.meituan.net/bs/tempfs/file/wengrunyu/preview.png" alt="" />
-            </span>
+        {!this.state.showError ? (
+          <div style={{ height: '100%', width: '100%' }}>
+            <div className="img-small-content" style={{ display: !this.state.loading ? 'block' : 'none' }}>
+              <img
+                className="img-small"
+                src={src}
+                alt=""
+                onError={this.handleError}
+                onLoad={this.handleOnload}
+              />
+              <div className="img-item-hover" onClick={this.handleClick}>
+                <span className="img-item-preview">
+                  <img src="http://s0.meituan.net/bs/tempfs/file/wengrunyu/preview.png" alt="preview" />
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="img-error">
+            <img
+              onLoad={this.handleOnload}
+              src="http://s0.meituan.net/bs/tempfs/file/wengrunyu/imgerror.png"
+              alt="error"
+            />
+          </div>
+        )}
         {this.state.showImg ? (
           <div className="img-item-full" onClick={this.handleClick}>
             <span className="img-preview-cancel" onClick={this.handleClick}>x</span>

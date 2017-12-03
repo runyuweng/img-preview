@@ -10,7 +10,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      'img-preview': path.join(__dirname, '..', 'src', 'index'),
+      'img-preview': path.join(__dirname, '..', 'lib', 'index'),
     },
   },
   output: {

@@ -216,3 +216,15 @@
       transform: rotate(405deg)
   }
 }
+
+.img-error{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.img-error img{
+  width: 40px;
+}
