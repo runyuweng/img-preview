@@ -30,7 +30,7 @@
   border-radius: 50%;
   width: 18px;
   height: 18px;
-  line-height: 16px;
+  line-height: 14px;
   background: #000;
   color: #fff;
   font-weight: 500;
@@ -78,7 +78,7 @@
   top: 0;
 }
 
-.img-list .img-item{
+.img-preview-list .img-item{
   position: relative;
   border-radius: 4px;
   border: 1px solid #d9d9d9;
@@ -87,14 +87,16 @@
   height: 96px;
   margin: 0 8px 8px 0;
   padding: 8px;
+  overflow: hidden;
+  box-sizing: border-box;
 }
-.img-list .img-item .img-small{
+.img-preview-list .img-small{
   border-radius: 4px;
   height: 100%;
   width: 100%;
   position: relative;
 }
-.img-list .img-item .img-item-preview{
+.img-preview-list .img-item-preview{
   position: absolute;
   color: #fff;
   left: 50%;
@@ -106,9 +108,12 @@
   white-space: nowrap;
   opacity: 1;
 }
-.img-list .img-item .img-item-hover{
+.img-preview-list .img-item-preview img{
+  width: 16px;
+  height: 16px;
+}
+.img-preview-list .img-item-hover{
   overflow: hidden;
-  border-radius: 4px;
   position: absolute;
   top:0;
   left: 0;
@@ -119,10 +124,13 @@
   opacity: 0;
   -webkit-transition: all .3s;
   transition: all .3s;
+  box-sizing: border-box;
+  border: 8px solid #fff;
+  border-radius: 12px;
 }
 
-.img-list .img-item .img-item-hover:hover{
-  opacity: 0.6
+.img-preview-list .img-item-hover:hover{
+  opacity: 0.5
 }
 
 .img-item-full{

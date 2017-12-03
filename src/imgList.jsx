@@ -8,9 +8,9 @@ import '../assets/index.css'
 import ImgItem from './imgItem'
 
 const ImgList = props => (
-  <div className="img-list">
+  <div className="img-preview-list">
     {props.srcList.map((d, i) => (
-      <ImgItem src={d} key={i} />
+      d ? <ImgItem src={d} key={i} /> : null
     ))}
   </div>
 )

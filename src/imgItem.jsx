@@ -12,6 +12,7 @@ class ImgItem extends Component {
     super(props)
     this.state = {
       showImg: false,
+      loading: true,
     }
   }
 
@@ -25,29 +26,35 @@ class ImgItem extends Component {
     e.stopPropagation()
   }
 
+  handleOnload = () => {
+    this.setState({
+      loading: false,
+    })
+  }
+
   render() {
     const { src } = this.props
     return (
       <div className="img-item">
-        {/* <div className="loading">
+        <div className="loading" style={{ display: this.state.loading ? 'flex' : 'none' }}>
           <div className="img-preview-loading">
             <span />
             <span />
             <span />
             <span />
           </div>
-        </div> */}
-        <div className="img-small-content">
+        </div>
+        <div className="img-small-content" style={{ display: !this.state.loading ? 'block' : 'none' }}>
           <img className="img-small" src={src} alt="" />
           <div className="img-item-hover" onClick={this.handleClick}>
             <span className="img-item-preview">
-              <img src="http://s0.meituan.net/bs/tempfs/file/wengrunyu/preview.png" alt="" />
+              <img onLoad={this.handleOnload} src="http://s0.meituan.net/bs/tempfs/file/wengrunyu/preview.png" alt="" />
             </span>
           </div>
         </div>
         {this.state.showImg ? (
           <div className="img-item-full" onClick={this.handleClick}>
-            <span className="img-preview-cancel" onClick={this.handleClick}>x</span>          
+            <span className="img-preview-cancel" onClick={this.handleClick}>x</span>
             <div className=" img-item-content" onClick={e => this.handleStopPropagation(e)} >
               <ImgPreview
                 src={src}
