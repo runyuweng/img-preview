@@ -10,9 +10,21 @@ import ImgPreview from 'img-preview';
 class AgentList extends Component {
   ...
   render(){
-    return <ImgPreview src='url'/>
+    return (
+      <div>
+        <ImgPreview src='url'/>
+        <ImgPreview src={[url0, url1, url2]}/>
+      </div>
   }
 }
 ```
 ## 配置
-- src: 
+- src: 支持数组或是字符串（url地址）
+## 特性
+- 自动生成预览缩略图
+- 点击缩略图后弹出大图
+- 支持放大缩小、旋转、拖拽等操作
+## 预览
+| 缩略图列表 | 大图 |
+| ---- | ---- |
+| ![image](assets/list.png) | ![image](assets/detail.png) |
