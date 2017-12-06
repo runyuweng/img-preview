@@ -134,7 +134,7 @@
 }
 
 .img-item-full{
-  z-index: 20;
+  z-index: 2000;
   position: fixed;
   top: 0!important;
   left: 0!important;
