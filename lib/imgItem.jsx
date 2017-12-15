@@ -3,24 +3,57 @@
  * autohr: wengrunyu@meituan.com
  */
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import '../assets/index.css'
 import ImgPreview from './imgPreview'
+
+const Hover = (props) => {
+  return (
+    <div>
+      <div className="img-item-full" onClick={props.handleClick}>
+        <span className="img-preview-cancel">x</span>
+        <div className=" img-item-content" onClick={e => props.handleStopPropagation(e)} >
+          <ImgPreview
+            src={props.src}
+          />
+        </div>
+      </div>
+    </div>)
+}
+
 
 class ImgItem extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showImg: false,
       showError: false,
       loading: true,
     }
-  }
+    this.showImg = false
+    this.div = document.createElement('div')
+}
 
   handleClick = () => {
-    this.setState({
-      showImg: !this.state.showImg,
-    })
+    this.showImg = !this.showImg
+    if (this.showImg) {
+      document.body.appendChild(this.div)
+      ReactDOM.render(
+        <Hover
+          src={this.props.src}
+          handleStopPropagation={this.handleStopPropagation}
+          handleClick={this.handleClick}
+        />,
+        this.div,
+      )
+    } else {
+      this.div.parentNode && this.div.parentNode.removeChild(this.div)
+    }
+
+
+    // this.setState({
+    //   showImg: !this.state.showImg,
+    // })
   }
 
   handleStopPropagation = (e) => {
@@ -77,16 +110,9 @@ class ImgItem extends Component {
             />
           </div>
         )}
-        {this.state.showImg ? (
-          <div className="img-item-full" onClick={this.handleClick}>
-            <span className="img-preview-cancel" onClick={this.handleClick}>x</span>
-            <div className=" img-item-content" onClick={e => this.handleStopPropagation(e)} >
-              <ImgPreview
-                src={src}
-              />
-            </div>
-          </div>
-        ) : null}
+        {/* {this.state.showImg ? (
+
+        ) : null} */}
       </div>)
   }
 }
@@ -96,6 +122,17 @@ ImgItem.propTypes = {
 }
 ImgItem.defaultProps = {
   src: '',
+}
+
+Hover.propTypes = {
+  src: PropTypes.string,
+  handleClick: PropTypes.func,
+  handleStopPropagation: PropTypes.func,
+}
+Hover.defaultProps = {
+  src: '',
+  handleClick: () => {},
+  handleStopPropagation: () => {},
 }
 
 export default ImgItem
