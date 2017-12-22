@@ -10,7 +10,6 @@ const Index = (props) => {
   } else if (Object.prototype.toString.call(src) === '[object String]') {
     srcList = [src]
   } else {
-    console.error('src must be Array or String(not empty)')
     return null
   }
   return <ImgList srcList={srcList} />
