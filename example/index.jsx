@@ -26,7 +26,30 @@ class ExamplePage extends Component {
         >
           Img-Preview-Demo
         </h1>
+
+        <h2 style={{ color: '#6f5d4f' }}>default:</h2>
+
         <ImgPreview src={[url4, url, url1, url2, url, url1, url2, url, url1, url2, url, url3]} />
+
+        <h2 style={{ color: '#6f5d4f' }}>customize:</h2>
+
+        <ImgPreview
+          src={[
+            {
+              url: url1,
+              name: '图片1',
+            },
+            {
+              url: url2,
+              name: '图片2',
+            },
+          ]}
+          render={t => (
+            <span style={{ marginLeft: '10px', color: 'rgb(16, 142, 233)', fontWeight: 'bolder' }}>
+              {t.name}
+            </span>
+          )}
+        />
       </div>
     )
   }

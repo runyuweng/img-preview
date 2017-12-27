@@ -49,11 +49,6 @@ class ImgItem extends Component {
     } else {
       this.div.parentNode && this.div.parentNode.removeChild(this.div)
     }
-
-
-    // this.setState({
-    //   showImg: !this.state.showImg,
-    // })
   }
 
   handleStopPropagation = (e) => {
@@ -73,54 +68,59 @@ class ImgItem extends Component {
   }
 
   render() {
-    const { src } = this.props
+    const { src, render, item } = this.props
     return (
-      <div className="img-item">
-        <div className="loading" style={{ display: this.state.loading ? 'flex' : 'none' }}>
-          <div className="img-preview-loading">
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
-        </div>
-        {!this.state.showError ? (
-          <div style={{ height: '100%', width: '100%' }}>
-            <div className="img-small-content" style={{ display: !this.state.loading ? 'block' : 'none' }}>
-              <img
-                className="img-small"
-                src={src}
-                alt=""
-                onError={this.handleError}
-                onLoad={this.handleOnload}
-              />
-              <div className="img-item-hover" onClick={this.handleClick}>
-                <span className="img-item-preview">
-                  <img src="http://s0.meituan.net/bs/tempfs/file/wengrunyu/preview.png" alt="preview" />
-                </span>
+      <div style={{ display: 'inline-block' }}>
+        {render && <span onClick={this.handleClick}>{render(item)}</span> || (
+          <div className="img-item">
+            <div className="loading" style={{ display: this.state.loading ? 'flex' : 'none' }}>
+              <div className="img-preview-loading">
+                <span />
+                <span />
+                <span />
+                <span />
               </div>
             </div>
-          </div>
-        ) : (
-          <div className="img-error">
-            <img
-              onLoad={this.handleOnload}
-              src="http://s0.meituan.net/bs/tempfs/file/wengrunyu/imgerror.png"
-              alt="error"
-            />
+            {!this.state.showError ? (
+              <div style={{ height: '100%', width: '100%' }}>
+                <div className="img-small-content" style={{ display: !this.state.loading ? 'block' : 'none' }}>
+                  <img
+                    className="img-small"
+                    src={src}
+                    alt=""
+                    onError={this.handleError}
+                    onLoad={this.handleOnload}
+                  />
+                  <div className="img-item-hover" onClick={this.handleClick}>
+                    <span className="img-item-preview">
+                      <img src="http://s0.meituan.net/bs/tempfs/file/wengrunyu/preview.png" alt="preview" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="img-error">
+                <img
+                  onLoad={this.handleOnload}
+                  src="http://s0.meituan.net/bs/tempfs/file/wengrunyu/imgerror.png"
+                  alt="error"
+                />
+              </div>
+            )}
           </div>
         )}
-        {/* {this.state.showImg ? (
-
-        ) : null} */}
       </div>)
   }
 }
 
 ImgItem.propTypes = {
+  item: PropTypes.object,
+  render: PropTypes.any,
   src: PropTypes.string,
 }
 ImgItem.defaultProps = {
+  item: {},
+  render: false,
   src: '',
 }
 
