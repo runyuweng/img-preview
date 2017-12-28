@@ -8,19 +8,18 @@ import PropTypes from 'prop-types'
 import '../assets/index.css'
 import ImgPreview from './imgPreview'
 
-const Hover = (props) => {
-  return (
-    <div>
-      <div className="img-item-full" onClick={props.handleClick}>
-        <span className="img-preview-cancel">x</span>
-        <div className=" img-item-content" onClick={e => props.handleStopPropagation(e)} >
-          <ImgPreview
-            src={props.src}
-          />
-        </div>
+const Hover = props => (
+  <div>
+    <div className="img-item-full" onClick={props.handleClick}>
+      <span className="img-preview-cancel">x</span>
+      <div className=" img-item-content" onClick={e => props.handleStopPropagation(e)} >
+        <ImgPreview
+          src={props.src}
+        />
       </div>
-    </div>)
-}
+    </div>
+  </div>
+)
 
 
 class ImgItem extends Component {
@@ -32,7 +31,7 @@ class ImgItem extends Component {
     }
     this.showImg = false
     this.div = document.createElement('div')
-}
+  }
 
   handleClick = () => {
     this.showImg = !this.showImg
@@ -71,6 +70,7 @@ class ImgItem extends Component {
     const { src, render, item } = this.props
     return (
       <div style={{ display: 'inline-block' }}>
+        {/* 判断是否自定义渲染列表 */}
         {render && <span onClick={this.handleClick}>{render(item)}</span> || (
           <div className="img-item">
             <div className="loading" style={{ display: this.state.loading ? 'flex' : 'none' }}>
@@ -81,6 +81,7 @@ class ImgItem extends Component {
                 <span />
               </div>
             </div>
+            {/* 判断图片是否加载成功 */}
             {!this.state.showError ? (
               <div style={{ height: '100%', width: '100%' }}>
                 <div className="img-small-content" style={{ display: !this.state.loading ? 'block' : 'none' }}>
@@ -114,7 +115,7 @@ class ImgItem extends Component {
 }
 
 ImgItem.propTypes = {
-  item: PropTypes.object,
+  item: PropTypes.any,
   render: PropTypes.any,
   src: PropTypes.string,
 }

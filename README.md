@@ -1,9 +1,9 @@
 # img-preview
-## 介绍
-图片预览组件，点击后全屏显示，支持放大缩小、拖拽等操作。
-## 安装
-`$ npm install img-preview`
-## 使用
+## Introduce
+Picture preview components, click to full screen display, support for zoom in, drag and other operations.
+## Install
+`$ npm install img-preview --save`
+## Usage
 ```
 import ImgPreview from 'img-preview';
 ...
@@ -33,17 +33,17 @@ class AgentList extends Component {
   }
 }
 ```
-## 配置
-- src: 支持数组或是字符串（url地址）
-- render: 自定义渲染list样式
+## Configuration
+- src: support array or string (url address)
+- render: custom rendering list style
 
-注意：在使用render时，src必须为array类型，同时array的每一项必须为object类型并包含src属性，详见demo。
-## 特性
-- 自动生成预览缩略图
-- 点击缩略图后弹出大图
-- 支持自定义列表样式
-- 支持放大缩小、旋转、拖拽等操作
+Note: When using render, src must be array type, each array must be object type and have src attribute, detail to see demo.
+## Features
+- Automatically generate preview thumbnails
+- Click on the thumbnail pop-up big picture
+- Support custom list style
+- Support zoom in, rotate, drag and other operations
 ## 预览
-| 缩略图列表 | 大图 |
+| Thumbnail list | detail |
 | ---- | ---- |
 | ![image](assets/list.png) | ![image](assets/detail.png) |
