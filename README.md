@@ -1,4 +1,4 @@
-# img-preview
+# ImgPreview
 ## Introduce
 Picture preview components, click to full screen display, support for zoom in, drag and other operations.
 ## Install
@@ -43,7 +43,8 @@ Note: When using render, src must be array type, each array must be object type 
 - Click on the thumbnail pop-up big picture
 - Support custom list style
 - Support zoom in, rotate, drag and other operations
-## 预览
-| Thumbnail list | detail |
-| ---- | ---- |
-| ![image](assets/list.png) | ![image](assets/detail.png) |
+## Overview
+### Thumbnail list
+![image](assets/list.png)
+### Detail
+![image](assets/detail.png)
