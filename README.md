@@ -1,4 +1,5 @@
 # ImgPreview
+[![NPM version](https://img.shields.io/npm/v/img-preview.svg)](https://www.npmjs.com/package/img-preview)
 ## Introduce
 Picture preview components, click to full screen display, support for zoom in, drag and other operations.
 ## Install
