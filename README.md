@@ -1,5 +1,7 @@
 # ImgPreview
+[![](https://img.shields.io/github/issues/wengwengweng/img-preview.svg)](https://github.com/wengwengweng/img-preview/issues)
 [![NPM version](https://img.shields.io/npm/v/img-preview.svg)](https://www.npmjs.com/package/img-preview)
+[![NPM downloads](https://img.shields.io/npm/dm/preview.svg?style=flat-square)](https://npmjs.org/package/img-preview)
 ## Introduce
 Picture preview components, click to full screen display, support for zoom in, drag and other operations.
 ## Install
