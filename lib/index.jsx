@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ImgList from './imgList'
+import List from './list'
 import { isArray, isString } from './utils'
 
 const Index = (props) => {
@@ -15,7 +15,7 @@ const Index = (props) => {
   } else {
     return null
   }
-  return <ImgList srcList={srcList} render={render} />
+  return <List srcList={srcList} render={render} />
 }
 
 Index.propTypes = {

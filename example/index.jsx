@@ -30,7 +30,10 @@ class ExamplePage extends Component {
 
         <h2 style={{ color: '#cba98d', borderBottom: '1px solid #d6baa9' }}>Default list:</h2>
 
-        <ImgPreview src={[url4, url, url1, url2, url, url1, url2, url, url1, url2, url, url3]} />
+        <ImgPreview src={[
+          url4, url, url1, url2, url, url1, url2, url, url1, url2, url, url3,
+          url4, url, url1, url2, url, url1, url2, url, url1, url2, url, url3,
+        ]} />
 
         <h2 style={{ color: '#cba98d', borderBottom: '1px solid #d6baa9' }}>Customized list:</h2>
 
