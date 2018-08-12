@@ -7,14 +7,6 @@ import ReactDOM from 'react-dom'
 import '../assets/index.css'
 import Popup from './popup'
 
-const Hover = props => (
-    <div id="img-preview-popup-bg" onClick={props.handleClick}>
-      <div className="iconfont icon-close cancel" />
-      <Popup src={props.src} />
-    </div>
-)
-
-
 class ImgItem extends Component {
   constructor(props) {
     super(props)
@@ -33,10 +25,10 @@ class ImgItem extends Component {
     if (this.showImg) {
       document.body.appendChild(this.div)
       ReactDOM.render(
-        <Hover
-          src={this.props.src}
-          handleClick={this.handleClick}
-        />,
+        <div id="img-preview-popup-bg" onClick={this.handleClick}>
+          <div className="iconfont icon-close cancel" />
+          <Popup src={this.props.src} />
+        </div>,
         this.div,
       )
     } else {
@@ -90,13 +82,27 @@ class ImgItem extends Component {
     }
   }
 
+  handleRender = () => {
+    const { render, item } = this.props;
+    if (render) {
+      return (
+        <span onClick={this.handleClick}>
+          {render(item)}
+        </span>
+      )
+    }
+    return (
+      <div className="thumbnail">
+        {this.handleShow()}
+      </div>
+    )
+  }
+
   render() {
     const { render, item } = this.props
     return (
       <div className="thumbnail-container">
-        {render ? <span onClick={this.handleClick}>{render(item)}</span> : <div className="thumbnail">
-          {this.handleShow()}
-        </div>}
+        {this.handleRender()}
       </div>
     )
   }

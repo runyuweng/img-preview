@@ -11,7 +11,7 @@
     "prepare": "npm run build",
     "dev": "cd ./example && webpack-dev-server --hot",
     "build": "babel lib -d dist --ignore spec.js,test.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint": "eslint **/*.jsx"
   },
   "author": "",
