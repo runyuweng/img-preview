@@ -1,7 +1,9 @@
 {
-  "plugins": ["minify-simplify"],
+  "plugins": [
+    "minify-simplify"
+  ],
   "presets": [
-    "es2015",
+    "env",
     "stage-0",
     "react"
   ]
