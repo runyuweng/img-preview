@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import List from './list'
-import { isArray, isString } from './utils'
+import Item from './item'
+import { isArray, isString, isObject } from './utils'
+import '../assets/index.css'
+import '../assets/iconfont.css'
 
 const Index = (props) => {
   const { src, render } = props
@@ -15,7 +17,18 @@ const Index = (props) => {
   } else {
     return null
   }
-  return <List srcList={srcList} render={render} />
+  return (
+    <div className="img-preview">
+      {srcList.map((d, i) => (
+        d ? <Item
+          src={isObject(d) ? (d.url || '') : d}
+          item={d}
+          key={i}
+          render={render}
+        /> : null
+      ))}
+    </div>
+  )
 }
 
 Index.propTypes = {

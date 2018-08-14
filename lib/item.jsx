@@ -4,7 +4,6 @@
  */
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import '../assets/index.css'
 import Popup from './popup'
 
 class ImgItem extends Component {
@@ -53,7 +52,7 @@ class ImgItem extends Component {
     const { src } = this.props
     switch (status) {
       case 'error':
-        return <div className="iconfont icon-img-error error"/> ;
+        return <div className="iconfont icon-imgerror error"/> ;
       case 'loading':
         return (
           <div className="loading">
@@ -99,7 +98,6 @@ class ImgItem extends Component {
   }
 
   render() {
-    const { render, item } = this.props
     return (
       <div className="thumbnail-container">
         {this.handleRender()}

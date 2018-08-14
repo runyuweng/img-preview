@@ -4,8 +4,6 @@
  */
 import React, { PureComponent } from 'react'
 import Img from './img.js';
-import '../assets/iconfont.css'
-import '../assets/index.css'
 
 class Popup extends PureComponent {
   constructor(props) {

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImgItem Item renders correctly`] = `
+  <div class="thumbnail-container">
+    <div class="thumbnail">
+      <div class="success">
+        <img src="https://avatars2.githubusercontent.com/u/16834265?s=400&amp;u=dd37eb4c227696e1fe47e8354d59b5db53be6959&amp;v=4">
+        <div class="img-hover">
+          <div class="iconfont icon-view view"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
