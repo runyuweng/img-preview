@@ -47,7 +47,7 @@ class ImgItem extends Component {
     })
   }
 
-  handleShow = () => {
+  handleStatusRender = () => {
     const { status } = this.state;
     const { src } = this.props
     switch (status) {
@@ -81,7 +81,7 @@ class ImgItem extends Component {
     }
   }
 
-  handleRender = () => {
+  handleCustomRender = () => {
     const { render, item } = this.props;
     if (render) {
       return (
@@ -92,7 +92,7 @@ class ImgItem extends Component {
     }
     return (
       <div className="thumbnail">
-        {this.handleShow()}
+        {this.handleStatusRender()}
       </div>
     )
   }
@@ -100,7 +100,7 @@ class ImgItem extends Component {
   render() {
     return (
       <div className="thumbnail-container">
-        {this.handleRender()}
+        {this.handleCustomRender()}
       </div>
     )
   }

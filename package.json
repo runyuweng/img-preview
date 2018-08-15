@@ -11,7 +11,7 @@
     "prepare": "npm run build",
     "dev": "cd ./example && webpack-dev-server --hot",
     "build": "babel lib -d dist --ignore spec.js,test.js",
-    "test": "jest",
+    "test": "jest -u",
     "lint": "eslint **/*.jsx"
   },
   "jest": {
@@ -20,6 +20,9 @@
     ],
     "collectCoverageFrom": [
       "lib/**/*"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ]
   },
   "author": "",
@@ -36,6 +39,7 @@
     "css-loader": "^1.0.0",
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^4.12.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
