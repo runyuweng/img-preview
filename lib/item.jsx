@@ -35,6 +35,12 @@ class ImgItem extends Component {
     }
   }
 
+  handleReload = () => {
+    this.setState({
+      status: 'loading',
+    })
+  }
+
   handleOnload = () => {
     this.setState({
       status: 'success',
@@ -42,9 +48,11 @@ class ImgItem extends Component {
   }
 
   handleError = () => {
-    this.setState({
-      status: 'error'
-    })
+    setTimeout(() => {
+      this.setState({
+        status: 'error'
+      })
+    }, 100)
   }
 
   handleStatusRender = () => {
@@ -52,7 +60,7 @@ class ImgItem extends Component {
     const { src } = this.props
     switch (status) {
       case 'error':
-        return <div className="iconfont icon-imgerror error"/> ;
+        return <div className="iconfont icon-error_img error" onClick={this.handleReload}/> ;
       case 'loading':
         return (
           <div className="loading">
@@ -81,26 +89,20 @@ class ImgItem extends Component {
     }
   }
 
-  handleCustomRender = () => {
-    const { render, item } = this.props;
-    if (render) {
-      return (
-        <span onClick={this.handleClick}>
-          {render(item)}
-        </span>
-      )
-    }
-    return (
-      <div className="thumbnail">
-        {this.handleStatusRender()}
-      </div>
-    )
-  }
 
   render() {
+    const { render, item } = this.props;
     return (
       <div className="thumbnail-container">
-        {this.handleCustomRender()}
+        {render ? (
+          <span onClick={this.handleClick}>
+            {render(item)}
+          </span>
+        ) : (
+          <div className="thumbnail">
+            {this.handleStatusRender()}
+          </div>
+        )}
       </div>
     )
   }

@@ -13,6 +13,7 @@
   padding: 8px;
   overflow: hidden;
   box-sizing: border-box;
+  cursor: pointer;
 }
 .img-preview .thumbnail .loading {
   width: 100%;
@@ -66,7 +67,7 @@
 }
 .img-preview .thumbnail .error {
   color: #ccc;
-  font-size: 80px;
+  font-size: 50px;
   line-height: 80px;
   text-align: center;
 }
