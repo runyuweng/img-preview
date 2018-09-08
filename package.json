@@ -1,6 +1,6 @@
 {
   "name": "img-preview",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Img preview component for react",
   "main": "dist/index.js",
   "repository": {
