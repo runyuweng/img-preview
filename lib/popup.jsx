@@ -9,16 +9,14 @@ class Popup extends PureComponent {
   constructor(props) {
     super(props)
   }
-
-  componentDidMount() {
-    this.newImg = new Img(this.img)
-    this.newImg.initializePosition()
-  }
   componentWillReceiveProps(props) {
     console.log(props)
     this.handleReset()
   }
-
+  handleOnload = () => {
+    this.newImg = new Img(this.img)
+    this.newImg.initializePosition()
+  }
   handleClick = (e) => {
     // 防止触发关闭事件
     e.stopPropagation()
@@ -56,6 +54,7 @@ class Popup extends PureComponent {
           src={this.props.src}
           onClick={this.handleClick}
           ref={(img) => { this.img = img }}
+          onLoad={this.handleOnload}
         />
         <div className="toolbar">
           <ul onClick={this.handleClick}>
