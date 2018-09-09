@@ -26,11 +26,12 @@ class ImgItem extends Component {
       ReactDOM.render(
         <div id="img-preview-popup-bg" onClick={this.handleClick}>
           <div className="iconfont icon-close cancel" />
-          <Popup src={this.props.src} />
+          <Popup src={this.props.src} ref={(popup) => { this.popup = popup }}/>
         </div>,
         this.div,
       )
     } else {
+      this.popup.componentWillUnmount()
       this.div.parentNode && this.div.parentNode.removeChild(this.div)
     }
   }
@@ -63,8 +64,8 @@ class ImgItem extends Component {
         return <div className="iconfont icon-error_img error" onClick={this.handleReload}/> ;
       case 'loading':
         return (
-          <div className="loading">
-            <div className="loading-container">
+          <div className="img-preview-loading">
+            <div className="img-preview-loading-container">
               <span />
               <span />
               <span />
