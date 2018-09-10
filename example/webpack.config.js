@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
     inline: true,

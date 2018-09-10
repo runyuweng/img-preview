@@ -12,7 +12,7 @@
     "dev": "cd ./example && webpack-dev-server --hot",
     "build": "babel lib -d dist --ignore spec.js,test.js",
     "test": "jest -u",
-    "lint": "eslint ./lib/*",
+    "lint": "eslint ./lib/* ./example/*",
     "check": "node ./tools/check.js"
   },
   "pre-commit": [

@@ -1,7 +1,10 @@
 const childProcess = require('child_process')
 const eslint = require('eslint')
 
-const cli = new eslint.CLIEngine({})
+const cli = new eslint.CLIEngine({
+  useEslintrc: false,
+  configFile: './.eslintrc',
+})
 
 function getErrorLevel(number) {
   switch (number) {
@@ -37,6 +40,8 @@ childProcess.exec('git diff --diff-filter=d --cached --name-only', (error, stdou
     })
     if (warningCount > 0 || errorCount > 0) {
       console.log(`\n   ${errorCount + warningCount} problems (${errorCount} ${'errors'} ${warningCount} warnings)`)
+    } else {
+      console.log('\n eslint test passed ☑️ \n')
     }
     process.exit(pass)
   }
