@@ -16,7 +16,8 @@
     "check": "node ./tools/check.js"
   },
   "pre-commit": [
-    "check"
+    "check",
+    "build"
   ],
   "jest": {
     "setupFiles": [

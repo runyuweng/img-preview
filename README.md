@@ -39,6 +39,7 @@ class AgentList extends Component {
 ## Configuration
 - src: support array or string (url address)
 - render: custom rendering list style
+- emptyText: support string or react component, display when src's length === 0
 
 Note: When using render, src must be array type, each array must be object type and have src attribute, detail to see demo.
 ## Features

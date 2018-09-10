@@ -33,7 +33,8 @@ class ImgItem extends Component {
         this.div,
       )
     } else {
-      this.popup.componentWillUnmount()
+      // 销毁弹窗
+      this.popup.handleDestory()
       this.div.parentNode && this.div.parentNode.removeChild(this.div)
     }
   }

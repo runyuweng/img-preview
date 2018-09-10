@@ -6,7 +6,7 @@ import '../assets/index.css'
 import '../assets/iconfont.css'
 
 const Index = (props) => {
-  const { src, render } = props
+  const { src, render, emptyText } = props
 
   let srcList
 
@@ -15,7 +15,7 @@ const Index = (props) => {
   } else if (isString(src)) {
     srcList = [src]
   } else {
-    return null
+    return emptyText
   }
   return (
     <div className="img-preview">
@@ -34,10 +34,12 @@ const Index = (props) => {
 Index.propTypes = {
   render: PropTypes.any,
   src: PropTypes.any,
+  emptyText: PropTypes.any,
 }
 Index.defaultProps = {
   render: false,
   src: '',
+  emptyText: null,
 }
 
 export default Index
