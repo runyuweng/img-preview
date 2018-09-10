@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { render } from 'react-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom'
 import ImgPreview from 'img-preview'
 
 const url = 'https://avatars2.githubusercontent.com/u/16834265?s=400&u=dd37eb4c227696e1fe47e8354d59b5db53be6959&v=4'
@@ -30,10 +30,12 @@ class ExamplePage extends Component {
 
         <h2 style={{ color: '#cba98d', borderBottom: '1px solid #d6baa9' }}>Default list:</h2>
 
-        <ImgPreview src={[
-          url4, url, url1, url2, url, url1, url2, url, url1, url2, url, url3,
-          url4, url, url1, url2, url, url1, url2, url, url1, url2, url, url3,
-        ]} />
+        <ImgPreview
+          src={[
+            url4, url, url1, url2, url, url1, url2, url, url1, url2, url, url3,
+            url4, url, url1, url2, url, url1, url2, url, url1, url2, url, url3,
+          ]}
+        />
 
         <h2 style={{ color: '#cba98d', borderBottom: '1px solid #d6baa9' }}>Customized list:</h2>
 
