@@ -1,8 +1,8 @@
 {
   "parserOptions": {
-      "ecmaFeatures": {
-          "jsx": true
-      }
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "parser": "babel-eslint",
   "extends": "airbnb",
@@ -16,124 +16,130 @@
     "document": true
   },
   "plugins": [
-      "react"
+    "react"
   ],
   "rules": {
-      // 0 off 无效
-      // 1 warning 警告
-      // 2 error 错误
-      // 默认表示airbnb默认的风格
-      
-      "no-mixed-operators": 0,      
-      // 禁止使用var
-      "no-var": 1,
-      // 处理错误的回调函数，默认off
-      "handle-callback-err": [2, "^(err|error)$" ],
-      // 不允许++或--，除了for循环外，默认只有error
-      "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-      // 尽量使用全局require，默认是error
-      "global-require": 1,
-      // 禁止使用下划线，除了__ssoinfo、this和super
-      "no-underscore-dangle": [2, {
-        "allow": ["__ssoinfo"],
+    "no-mixed-operators": 0,
+    "no-var": 1,
+    "handle-callback-err": [
+      2,
+      "^(err|error)$"
+    ],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "global-require": 1,
+    "no-underscore-dangle": [
+      2,
+      {
+        "allow": [
+          "__ssoinfo"
+        ],
         "allowAfterThis": false,
         "allowAfterSuper": false
-      }],
-      // 禁止未用过的表达式
-      "no-unused-expressions": [2, {
+      }
+    ],
+    "no-unused-expressions": [
+      2,
+      {
         "allowShortCircuit": true,
         "allowTernary": true,
         "allowTaggedTemplates": false
-      }],
-      // 禁止对参数赋值，属性赋值除外
-      "no-param-reassign": [2, { "props": false }],
-      // 禁止嵌套多目表达式，默认error
-      "no-nested-ternary": 2,
-      // 强制要求操作符在后面，除了?:在前面，默认是off
-      "operator-linebreak": [1, "after", { "overrides": { "?": "before", ":": "before" } }],
-      // 分号，这个看情况，暂用警告，默认是error，always
-      "semi": [1, "never"],
-      // 确保for in语句中有if条件，默认是error
-      "guard-for-in": 0,
-
-      // ----------- react规则 -----------
-      // 对于 JSX 属性值总是使用双引号("), 其他均使用单引号(')
-      "jsx-quotes": [1, "prefer-double"],
-      // 如果属性值为 true, 可以直接省略
-      "react/jsx-boolean-value": 2,
-      // 不要在JSX {} 引用括号里两边加空格
-      "react/jsx-curly-spacing": [2, "never"],
-      // 不要在属性值等号前后加空格
-      "react/jsx-equals-spacing": [2, "never"],
-      // 缩进
-      "react/jsx-indent": [1, 2],
-      // 属性缩进
-      "react/jsx-indent-props": [2, 2],
-      // 不能有重复属性
-      "react/jsx-no-duplicate-props": 2,
-      // 不能有未定义的属性
-      "react/jsx-no-undef": 2,
-      // 总是在自动关闭的标签前加一个空格, 正常情况下不需要换行
-      "react/jsx-tag-spacing": [2, { "beforeSelfClosing": "always" }],
-      // 防止未使用React
-      "react/jsx-uses-react": 2,
-      // 防止未使用变量
-      "react/jsx-uses-vars": 2,
-      // 对于没有子元素的标签, 总是自关闭标签
-      "react/self-closing-comp": 2,
-      // 当在 render() 里使用事件处理方法时, 提前在构造函数里把 this 绑定上去
-      "react/jsx-no-bind": [1, {
-        // 允许箭头函数
+      }
+    ],
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }
+    ],
+    "no-nested-ternary": 2,
+    "operator-linebreak": [
+      1,
+      "after",
+      {
+        "overrides": {
+          "?": "before",
+          ":": "before"
+        }
+      }
+    ],
+    "semi": [
+      1,
+      "never"
+    ],
+    "guard-for-in": 0,
+    "jsx-quotes": [
+      1,
+      "prefer-double"
+    ],
+    "react/jsx-boolean-value": 2,
+    "react/jsx-curly-spacing": [
+      2,
+      "never"
+    ],
+    "react/jsx-equals-spacing": [
+      2,
+      "never"
+    ],
+    "react/jsx-indent": [
+      1,
+      2
+    ],
+    "react/jsx-indent-props": [
+      2,
+      2
+    ],
+    "react/jsx-no-duplicate-props": 2,
+    "react/jsx-no-undef": 2,
+    "react/jsx-tag-spacing": [
+      2,
+      {
+        "beforeSelfClosing": "always"
+      }
+    ],
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/self-closing-comp": 2,
+    "react/jsx-no-bind": [
+      1,
+      {
         "allowArrowFunctions": true,
-        // 不允许bind绑定
         "allowBind": false,
-        // 允许ref绑定
         "ignoreRefs": true
-      }],
-      // 不允许在componentDidUpdate中使用setState
-      "react/no-did-update-set-state": 2,
-      // 限制不使用的属性类型
-      "react/forbid-prop-types": 0,
-      // 不允许使用HTML属性，而应该使用JSX的驼峰属性
-      "react/no-unknown-property": 2,
-      // 防止定义了属性类型而没有使用
-      "react/no-unused-prop-types": 2,
-      // 防止没有定义属性类型
-      "react/prop-types": 2,
-      // 防止使用JSX没有引入react
-      "react/react-in-jsx-scope": 0,
-      // 有多行属性的话, 新建一行关闭标签;若能在一行中显示, 直接写成一行
-      "react/jsx-closing-bracket-location": 1,
-      // 文件名和React组件名使用帕斯卡命名, 实例使用驼峰命名.
-      "react/jsx-pascal-case": 2,
-      // 总是使用回调函数方式定义 ref
-      "react/no-string-refs": 2,
-      // 将多行 JSX 标签写在 ()里
-      "react/jsx-wrap-multilines": 2,
-      // 在 render 方法中总是确保 return 返回值
-      "react/require-render-return": 2,
-      // 遵循生命周期顺序的规则来组织方法
-      "react/sort-comp": 1,
-      // 防止在单个文件中定义多个组件
-      "react/no-multi-comp": 1,
-      // 索引可以为key
-      "react/no-array-index-key": 0,
-      
-      // --------------import规则---------------
-      // 禁止引入额外的依赖
-      "import/no-extraneous-dependencies": 0,
-      // 禁止未能处理的依赖
-      "import/no-unresolved": [2, { "ignore": ["^@.*"] } ],
-      // 保持引入的时候路径后缀一致
-      "import/extensions": 0,
-      // 禁用动态引入require
-      "import/no-dynamic-require": 0,
-
-      // --------------jsx-a11y规则--------------
-      // 确保div等一些有点击事件的元素在使用点击事件时有role属性
-      "jsx-a11y/no-static-element-interactions": 0,
-      "jsx-a11y/click-events-have-key-events": 0,
-      "jsx-a11y/no-noninteractive-element-interactions": 0,
-      "no-console": 0
+      }
+    ],
+    "react/no-did-update-set-state": 2,
+    "react/forbid-prop-types": 0,
+    "react/no-unknown-property": 2,
+    "react/no-unused-prop-types": 2,
+    "react/prop-types": 2,
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-closing-bracket-location": 1,
+    "react/jsx-pascal-case": 2,
+    "react/no-string-refs": 2,
+    "react/jsx-wrap-multilines": 2,
+    "react/require-render-return": 2,
+    "react/sort-comp": 1,
+    "react/no-multi-comp": 1,
+    "react/no-array-index-key": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": [
+      2,
+      {
+        "ignore": [
+          "./example/*"
+        ]
+      }
+    ],
+    "import/extensions": 0,
+    "import/no-dynamic-require": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "no-console": 0
   }
 }

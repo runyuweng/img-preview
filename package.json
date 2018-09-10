@@ -12,8 +12,12 @@
     "dev": "cd ./example && webpack-dev-server --hot",
     "build": "babel lib -d dist --ignore spec.js,test.js",
     "test": "jest -u",
-    "lint": "eslint ./lib/*"
+    "lint": "eslint ./lib/*",
+    "check": "node ./tools/check.js"
   },
+  "pre-commit": [
+    "check"
+  ],
   "jest": {
     "setupFiles": [
       "./test/setup.js"
@@ -55,9 +59,6 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "bugs": {
     "url": "https://github.com/wengwengweng/img-preview/issues"
   },

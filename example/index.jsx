@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { render } from 'react-dom'
 import ImgPreview from 'img-preview'
 
