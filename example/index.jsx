@@ -43,9 +43,17 @@ class ExamplePage extends Component {
             { url: url2, name: '图片2' },
             { url: url3, name: '图片3' },
             { url: url4, name: '图片4' },
+            { url: null, name: '图片5' },
           ]}
           render={t => (
-            <span style={{ marginLeft: '10px', color: '#73433c', fontWeight: 'bolder', cursor: 'pointer' }}>
+            <span
+              style={{
+                marginLeft: '10px',
+                color: '#73433c',
+                fontWeight: 'bolder',
+                cursor: 'pointer',
+              }}
+            >
               {t.name}
             </span>
           )}

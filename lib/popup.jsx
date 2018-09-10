@@ -3,23 +3,25 @@
  * autohr: wengrunyu@meituan.com
  */
 import React, { PureComponent } from 'react'
-import Img from './img.js';
+import PropTypes from 'prop-types'
+import Img from './img.js'
+import { SUCCESS_STATUS, LOADING_STATUS, ERROR_STATUS } from './constants'
 
 class Popup extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      status: 'loading'
+      status: LOADING_STATUS,
     }
   }
   componentWillReceiveProps() {
     this.setState({
-      status: 'loading'
+      status: LOADING_STATUS,
     })
   }
   componentWillUnmount() {
     this.setState({
-      status: 'end'
+      status: ERROR_STATUS,
     })
   }
   handleOnload = () => {
@@ -28,7 +30,7 @@ class Popup extends PureComponent {
       return
     }
     this.setState({
-      status: "success"
+      status: SUCCESS_STATUS,
     })
     this.newImg = new Img(this.img)
     this.newImg.initializePosition()
@@ -66,7 +68,7 @@ class Popup extends PureComponent {
   handleError = () => {
     setTimeout(() => {
       this.setState({
-        status: 'error'
+        status: ERROR_STATUS,
       })
     }, 100)
   }
@@ -74,14 +76,14 @@ class Popup extends PureComponent {
   handleReload = (e) => {
     e.stopPropagation()
     this.setState({
-      status: 'loading'
+      status: LOADING_STATUS,
     })
   }
 
   render() {
-    const { status } = this.state;
+    const { status } = this.state
     switch (status) {
-      case 'loading':
+      case LOADING_STATUS:
         return (
           <div className="img-preview-popup">
             <div className="img-preview-loading">
@@ -93,6 +95,7 @@ class Popup extends PureComponent {
               </div>
             </div>
             <img
+              alt="largePic"
               src={this.props.src}
               onClick={this.handleClick}
               ref={(img) => { this.img = img }}
@@ -101,18 +104,19 @@ class Popup extends PureComponent {
             />
           </div>
         )
-      case 'error':
+      case ERROR_STATUS:
         return (
           <div className="img-preview-popup">
             <div className="error">
-              <div className="iconfont icon-error_img" onClick={this.handleReload}/> 
+              <div className="iconfont icon-error_img" onClick={this.handleReload} />
             </div>
           </div>
         )
-      case 'success':
+      case SUCCESS_STATUS:
         return (
           <div className="img-preview-popup">
             <img
+              alt="largePic"
               src={this.props.src}
               onClick={this.handleClick}
               ref={(img) => { this.img = img }}
@@ -121,19 +125,29 @@ class Popup extends PureComponent {
             />
             <div className="toolbar">
               <ul onClick={this.handleClick}>
-                <li className="iconfont icon-enlarge"  onClick={this.handleEnlarge}/>
-                <li className="iconfont icon-shrink" onClick={this.handleShrink}/>
-                <li className="iconfont icon-turn-left" onClick={this.handleTurnLeft}/>
-                <li className="iconfont icon-turn-right" onClick={this.handleTurnRight}/>
-                <li className="iconfont icon-refresh"  onClick={this.handleReset}/>
+                <li className="iconfont icon-enlarge" onClick={this.handleEnlarge} />
+                <li className="iconfont icon-shrink" onClick={this.handleShrink} />
+                <li className="iconfont icon-turn-left" onClick={this.handleTurnLeft} />
+                <li className="iconfont icon-turn-right" onClick={this.handleTurnRight} />
+                <li className="iconfont icon-refresh" onClick={this.handleReset} />
               </ul>
             </div>
           </div>
         )
       case 'end':
         return null
+      default:
+        return null
     }
   }
+}
+
+Popup.propTypes = {
+  src: PropTypes.string,
+}
+
+Popup.defaultProps = {
+  src: '',
 }
 
 
