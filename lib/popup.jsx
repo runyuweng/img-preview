@@ -19,6 +19,11 @@ class Popup extends PureComponent {
       status: LOADING_STATUS,
     })
   }
+
+  componentWillUnmount() {
+    this.newImg.destory()
+  }
+
   handleDestory() {
     this.setState({
       status: ERROR_STATUS,
